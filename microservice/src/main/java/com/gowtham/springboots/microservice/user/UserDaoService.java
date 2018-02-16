@@ -1,6 +1,7 @@
 package com.gowtham.springboots.microservice.user;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,4 +52,24 @@ public class UserDaoService {
 		return user;
 	}
 
+	
+	User deleteById(int id){
+		
+		Iterator<User> userlist = users.iterator();
+		
+		while(userlist.hasNext()){
+			
+			User user = userlist.next();
+			
+			if(user.getId() == id){
+				
+				userlist.remove();
+				return user;
+			}
+			
+		}
+		
+		return null;
+	}
+	
 }
