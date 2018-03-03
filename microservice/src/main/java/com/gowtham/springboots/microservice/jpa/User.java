@@ -1,8 +1,10 @@
-package com.gowtham.springboots.microservice.user;
+package com.gowtham.springboots.microservice.jpa;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -11,6 +13,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description="User related details.")
+@Entity
 public class User {
 
 	@Size(min=2, message="Name must have minimum 2 characters.")
@@ -18,6 +21,7 @@ public class User {
 	@ApiModelProperty(notes="Name must have minimum 2 characters")
 	private String name;
 	
+	@Id
 	@GeneratedValue
 	private int id;
 	
